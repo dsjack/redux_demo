@@ -8,11 +8,11 @@ import com.example.jack_cheng.redux_demo.redux.Action;
 
 public class AddAction implements Action {
     public static final String TYPE = "Add";
-    private int position;
+    private String tag;
     private int index;
 
-    public AddAction(int position, int index) {
-        this.position = position;
+    public AddAction(String tag, int index) {
+        this.tag = tag;
         this.index = index;
     }
 
@@ -29,11 +29,11 @@ public class AddAction implements Action {
         this.index = index;
     }
 
-    public int getPosition() {
-        return position;
+    public String getTag() {
+        return tag;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

@@ -12,7 +12,6 @@ import com.example.jack_cheng.redux_demo.model.Order;
 import com.example.jack_cheng.redux_demo.model.Product;
 import com.example.jack_cheng.redux_demo.model.Visibility;
 import com.example.jack_cheng.redux_demo.model.actions.ActionCreator;
-import com.example.jack_cheng.redux_demo.model.actions.ChangeVisibilityAction;
 import com.example.jack_cheng.redux_demo.model.dto.FakeDataDTO;
 import com.example.jack_cheng.redux_demo.model.reducer.CounterStore;
 import com.example.jack_cheng.redux_demo.model.reducer.ProductReducer;
@@ -22,7 +21,6 @@ import com.example.jack_cheng.redux_demo.redux.Reducer;
 import com.example.jack_cheng.redux_demo.redux.Redux;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -102,27 +100,26 @@ public class MainActivity extends AppCompatActivity implements Observer {
     public void update() {
         List<Product> productList = counterStore.getState().getProductList();
         List<Product> filterProductList = new ArrayList<>();
-        switch (counterStore.getState().getVisibility()){
+        switch (counterStore.getState().getVisibility()) {
             case SHOW_ON_SALE:
-                for (Product p:productList) {
-                    if(!p.isSoldOut()){
+                for (Product p : productList) {
+                    if (!p.isSoldOut()) {
                         filterProductList.add(p);
                     }
                 }
                 break;
             case SHOW_SOLD_OUT:
-                for (Product p:productList) {
-                    if(p.isSoldOut()){
+                for (Product p : productList) {
+                    if (p.isSoldOut()) {
                         filterProductList.add(p);
                     }
                 }
                 break;
-            case SHOW_All:
+            case SHOW_ALL:
             default:
                 filterProductList = productList;
                 break;
         }
-
 
         adapter.setCounterListData(filterProductList);
     }
@@ -152,9 +149,9 @@ public class MainActivity extends AppCompatActivity implements Observer {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        switch (id){
+        switch (id) {
             case R.id.show_all:
-                counterStore.dispatch(actionCreator.ChangeFilter(Visibility.SHOW_All));
+                counterStore.dispatch(actionCreator.ChangeFilter(Visibility.SHOW_ALL));
                 break;
             case R.id.action_on_sale:
                 counterStore.dispatch(actionCreator.ChangeFilter(Visibility.SHOW_ON_SALE));

@@ -25,12 +25,12 @@ public class ActionCreator {
         return addProduct(dto.getProductName(), counterList , dto.isSoldOut());
     }
 
-    public Action addCounterNumber(int position, int target) {
-        return new AddAction(position, target);
+    public Action addCounterNumber(String tag, int target) {
+        return new AddAction(tag, target);
     }
 
-    public Action reduceCounterNumber(int position, int target) {
-        return new ReduceAction(position, target);
+    public Action reduceCounterNumber(String tag, int target) {
+        return new ReduceAction(tag, target);
     }
 
 

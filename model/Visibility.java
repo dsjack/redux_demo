@@ -5,5 +5,5 @@ package com.example.jack_cheng.redux_demo.model;
  */
 
 public enum Visibility {
-    SHOW_All,SHOW_ON_SALE,SHOW_SOLD_OUT
+    SHOW_ALL,SHOW_ON_SALE,SHOW_SOLD_OUT
 }

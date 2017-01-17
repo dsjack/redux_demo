@@ -36,10 +36,10 @@ public class ProductReducer implements Reducer<List<Product>, Action> {
 
             case AddAction.TYPE:
                 int addTarget = ((AddAction) action).getIndex();
-                int addPosition = ((AddAction) action).getPosition();
+                String addTag = ((AddAction) action).getTag();
 
                 for (int i = 0; i < state.size(); i++) {
-                    if (addPosition == i) {
+                    if (addTag.equals(state.get(i).getName())) {
                         Product product = state.get(i);
                         for (int j = 0; j < product.getCounter().size(); j++) {
                             if (addTarget == j) {
@@ -61,10 +61,10 @@ public class ProductReducer implements Reducer<List<Product>, Action> {
 
             case ReduceAction.TYPE:
                 int reduceTarget = ((ReduceAction) action).getIndex();
-                int reducePosition = ((ReduceAction) action).getPosotion();
+                String reduceTag = ((ReduceAction) action).getTag();
 
                 for (int i = 0; i < state.size(); i++) {
-                    if (reducePosition == i) {
+                    if (reduceTag.equals(state.get(i).getName())) {
                         Product product = state.get(i);
                         for (int j = 0; j < product.getCounter().size(); j++) {
                             if (reduceTarget == j) {

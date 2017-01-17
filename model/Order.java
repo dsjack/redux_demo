@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Order {
     private List<Product> productList = new ArrayList<>();
-    private Visibility visibility = Visibility.SHOW_All;
+    private Visibility visibility = Visibility.SHOW_ALL;
 
     public List<Product> getProductList() {
         return productList;
